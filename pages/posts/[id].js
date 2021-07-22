@@ -1,9 +1,25 @@
 import Posts from '../../lib/posts'
+import { getAllPostIds, getPostData } from '../../lib/posts'
 
-export default function Post() {
-  return <Posts>...</Posts>
-}
+
 
 export async function getStaticPaths() {
-    // Return a list of possible value for id
+    const paths = await getAllPostIds()
+    return {    
+      paths,
+      fallback: false
+    }
+}
+export async function getStaticProps({ params }) {
+    // Add the "await" keyword like this:
+    const postData = await getPostData(params.id)
+    // ...
+    return {
+        props: {
+          postData
+        }
+      }
+  }
+export default function Post({postData}) {
+    return <><h1>{postData.id}</h1> <h2>{postData.title}</h2> <p>{postData.body}</p></>
   }
