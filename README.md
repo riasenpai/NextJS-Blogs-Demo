@@ -7,4 +7,4 @@
 
 ![](images/d4.PNG)
 
-### CSS hasn't been added yet. This project Static Generates pages using NEXTJS 
+### CSS hasn't been added yet. This project Statically Generates pages using NEXTJS 
